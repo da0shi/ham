@@ -1,0 +1,19 @@
+# backup files
+.*.swp
+*~
+*.orig
+
+# garbage files
+.DS_Store
+Thumbs.db
+
+# composer
+composer.phar
+composer.lock
+
+# do not contains vendor libraries
+/app/vendor
+
+# do not ignore
+!composer.json
+!.gitkeep

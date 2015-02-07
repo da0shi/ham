@@ -1,0 +1,16 @@
+{
+  "config": {
+    "vendor-dir": "app/vendor"
+  },
+  "require": {
+    "silex/silex": "*",
+    "twig/twig": "*",
+    "symfony/twig-bridge": "*",
+    "doctrine/dbal": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpmd/phpmd": "*",
+    "phploc/phploc": "*"
+  }
+}
