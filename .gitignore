@@ -11,6 +11,9 @@ Thumbs.db
 composer.phar
 composer.lock
 
+# cache files
+/app/cache
+
 # do not contains vendor libraries
 /app/vendor
 
