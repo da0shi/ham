@@ -36,17 +36,19 @@ $app->register(new Provider\DoctrineServiceProvider(), [
 ]);
 
 $app->get('/', function () use ($app) {
-    $app['session']->start();
     return 'Index page';
 });
 $app->get('/receipt/new', function () use ($app) {
-    return 'Index page';
+    $app['session']->start();
+    $viewdata = [
+        'title' => 'New Receipt',
+        'headline' => 'レシート追加',
+    ];
+    return $app['twig']->render('receipt/new.twig', $viewdata);
 });
 $app->put('/receipt/new', function () use ($app) {
-    return 'Index page';
 });
 $app->get('/template', function () use ($app) {
-    return 'Index page';
 });
 
 $app->run();
