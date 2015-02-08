@@ -15,6 +15,7 @@ $app = new Application();
 $app['debug'] = true;
 # Provider Registration
 $app->register(new Provider\SessionServiceProvider(), []);
+$app->register(new Provider\UrlGeneratorServiceProvider(), []);
 $app->register(new Provider\TwigServiceProvider(), [
     'twig.path' => APPROOT .'views',
     'twig.options' => [
@@ -35,6 +36,8 @@ $app->register(new Provider\DoctrineServiceProvider(), [
     ],
 ]);
 
+Request::enableHttpMethodParameterOverride();
+
 $app->get('/', function () use ($app) {
     return 'Index page';
 });
@@ -45,7 +48,7 @@ $app->get('/receipt/new', function () use ($app) {
         'headline' => 'レシート追加',
     ];
     return $app['twig']->render('receipt/new.twig', $viewdata);
-});
+})->bind('receipt');
 $app->put('/receipt/new', function () use ($app) {
 });
 $app->get('/template', function () use ($app) {
