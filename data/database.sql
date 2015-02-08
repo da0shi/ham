@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS `ham`;
 GRANT ALL PRIVILEGES
 ON `ham`.*
 TO `ham`@`localhost`
-IDENTIFIED BY `ham-manager`;
+IDENTIFIED BY 'spamspamsham';
 
 USE `ham`;
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `ham`.`receipt` (
   `memo` text DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`receipt_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`item`;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `ham`.`item` (
   `memo` text DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`item_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`paidfrom`;
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `ham`.`paidfrom` (
   `name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`paidfrom_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`shop`;
@@ -51,21 +51,14 @@ CREATE TABLE IF NOT EXISTS `ham`.`shop` (
   `name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`shop_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`category`;
 CREATE TABLE IF NOT EXISTS `ham`.`category` (
   `id` serial NOT NULL,
   `name` varchar (50) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`category_id`)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
-
-DROP TABLE IF EXISTS `ham`.`tablename`;
-CREATE TABLE IF NOT EXISTS `ham`.`tablename` (
-  `id` serial NOT NULL,
+  `parent_id` bigint NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
