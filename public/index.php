@@ -39,8 +39,12 @@ $app->register(new Provider\DoctrineServiceProvider(), [
 Request::enableHttpMethodParameterOverride();
 
 $app->get('/', function () use ($app) {
-    return 'Index page';
-});
+    $viewdata = [
+        'title' => 'Home',
+        'headline' => 'ホーム',
+    ];
+    return $app['twig']->render('main.twig', $viewdata);
+})->bind('home');
 $app->get('/receipt/new', function () use ($app) {
     $app['session']->start();
     $viewdata = [
