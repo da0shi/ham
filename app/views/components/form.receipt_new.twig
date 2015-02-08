@@ -1,0 +1,29 @@
+<form action="" method="post">
+	<div class="receipt-form-header"></div>
+	<div class="receipt-form-body">
+	<label for="purchased_at">日付</label>
+	<input type="date" id="purchased_at" name="purchased_at" class="input-block">
+
+	<label for="purchased_time">時間</label>
+	<input type="time" id="purchased_time" name="purchased_time" class="input-block">
+
+	<label for="category">種類</label>
+	<input type="text" id="category" name="category" class="input-block">
+
+	<label for="total">合計</label>
+	<input type="text" id="total" name="total" class="input-block">
+	
+	<label for="shop">店名</label>
+	<input type="text" id="shop" name="shop" class="input-block">
+
+	<label for="paidfrom_id">出金元</label>
+	<select id="paidfrom_id" name="paidfrom_id" class="input-block">
+	</select>
+
+	<label for="memo">メモ</label>
+	<input type="text" id="memo" name="memo" class="input-block">
+
+	<input type="hidden" name="_method" value="PUT">
+	<input type="submit" name="submit" value="Submit" class="button">
+	</div>
+</form>
