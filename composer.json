@@ -2,6 +2,11 @@
   "config": {
     "vendor-dir": "app/vendor"
   },
+  "autoload": {
+    "psr-4": {
+      "da0shi\\": "app/lib/"
+    }
+  },
   "require": {
     "silex/silex": "*",
     "twig/twig": "*",
