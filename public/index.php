@@ -31,7 +31,7 @@ $app->register(new Provider\DoctrineServiceProvider(), [
         'dbname' => 'ham',
         'host' => 'localhost',
         'user' => 'ham',
-        'password' => 'ham-manager',
+        'password' => 'spamspamsham',
         'charset' => 'utf8',
     ],
 ]);

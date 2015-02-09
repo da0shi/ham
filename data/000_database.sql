@@ -1,12 +1,13 @@
 -- vim: set ts=2 sw=2 expandtab:
 CREATE DATABASE IF NOT EXISTS `ham`;
-
+/*
 GRANT ALL PRIVILEGES
 ON `ham`.*
 TO `ham`@`localhost`
 IDENTIFIED BY 'spamspamsham';
 
 USE `ham`;
+*/
 
 DROP TABLE IF EXISTS `ham`.`receipt`;
 CREATE TABLE IF NOT EXISTS `ham`.`receipt` (
@@ -42,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `ham`.`paidfrom` (
   `name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`shop`;
@@ -51,15 +53,18 @@ CREATE TABLE IF NOT EXISTS `ham`.`shop` (
   `name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 DROP TABLE IF EXISTS `ham`.`category`;
 CREATE TABLE IF NOT EXISTS `ham`.`category` (
   `id` serial NOT NULL,
+  `unique_id` bigint NOT NULL,
   `name` varchar (50) NOT NULL,
-  `parent_id` bigint NOT NULL DEFAULT 0,
+  `parent_unique_id` bigint NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`unique_id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
