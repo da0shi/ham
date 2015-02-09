@@ -1,6 +1,21 @@
 <form action="{{ path('receipt-new') }}" method="post">
 	<div class="receipt-form-header"></div>
 	<div class="receipt-form-body">
+	<div class="receipt-items-body">
+	<ul id="receipt-items">
+		<li class="receipt-item header">
+		<span class="item-name">品目</span>
+		<span class="item-category">種類</span>
+		<span class="item-price">金額</span>
+		</li>
+		<li class="receipt-item input-block">
+		<span class="item-name"><input type="text" name="item_name[]"></span>
+		<span class="item-category"><input type="text" name="item_category[]"></span>
+		<span class="item-price"><input type="text" name="item_price[]"></span>
+		</li>
+	</ul>
+	<button id="btn-add-item" class="button">アイテム追加</button>
+	</div>
 	<label for="purchased_at">日付</label>
 	<input type="date" id="purchased_at" name="purchased_at" class="input-block" value="{{ values.purchased_at | date('Y-m-d') }}">
 

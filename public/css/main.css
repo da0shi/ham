@@ -71,10 +71,25 @@ footer {
 
 .receipt-form-body {
   margin-left: 15px;
-  width: 380px;
+  width: 560px;
 }
 .receipt-form-body .input-block {
   margin-top: 5px;
   margin-bottom: 15px;
 }
-
+.receipt-items-body {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+#receipt-items {
+  list-style: none;
+}
+#receipt-items > .header {
+}
+.receipt-item > .item-name,
+.receipt-item > .item-category,
+.receipt-item > .item-price {
+  display: inline-block;
+  width: 30%;
+  padding: 0 5px;
+}

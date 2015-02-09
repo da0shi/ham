@@ -11,3 +11,14 @@
 {% block footer %}
     {% include "components/footer.twig" %}
 {% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+var btn = document.getElementById('btn-add-item');
+btn.addEventListener('click', function (event) {
+		event.preventDefault();
+		ham.addItem('receipt-items');
+		return false;
+		});
+</script>
+{% endblock %}
