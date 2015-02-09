@@ -45,15 +45,30 @@ $app->get('/', function () use ($app) {
     ];
     return $app['twig']->render('main.twig', $viewdata);
 })->bind('home');
+
 $app->get('/receipt/new', function () use ($app) {
     $app['session']->start();
+    $options = [
+        'paidfrom' => $app['db']->fetchAll('SELECT `id`, `name` FROM `paidfrom` ORDER BY `id`'),
+            'category' => $app['db']->fetchAll('SELECT `id`, `name`, `parent_unique_id` FROM `category` ORDER BY `unique_id`'),
+        ];
+    $defaults = [
+        'purchased_at' => time(),
+            'purchased_time' => "00:00",
+            'total' => 0,
+        ];
     $viewdata = [
         'title' => 'New Receipt',
         'headline' => 'レシート追加',
+        'options' => $options,
+        'values' => $defaults,
     ];
     return $app['twig']->render('receipt/new.twig', $viewdata);
-})->bind('receipt');
-$app->put('/receipt/new', function () use ($app) {
+})->bind('receipt-new');
+$app->put('/receipt/new', function (Request $request) use ($app) {
+    $app['session']->start();
+    $post = $request->request->all();
+    return print_r($post, true);
 });
 $app->get('/template', function () use ($app) {
 });

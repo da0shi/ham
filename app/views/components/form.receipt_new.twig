@@ -1,27 +1,39 @@
-<form action="" method="post">
+<form action="{{ path('receipt-new') }}" method="post">
 	<div class="receipt-form-header"></div>
 	<div class="receipt-form-body">
 	<label for="purchased_at">日付</label>
-	<input type="date" id="purchased_at" name="purchased_at" class="input-block">
+	<input type="date" id="purchased_at" name="purchased_at" class="input-block" value="{{ values.purchased_at | date('Y/m/d') }}">
 
 	<label for="purchased_time">時間</label>
-	<input type="time" id="purchased_time" name="purchased_time" class="input-block">
+	<input type="time" id="purchased_time" name="purchased_time" class="input-block" value="{{ values.purchased_time | date('H:i')}}">
 
-	<label for="category">種類</label>
-	<input type="text" id="category" name="category" class="input-block">
+	<label for="category_id">種類</label>
+	<select id="category_id" name="category_id" class="input-block">
+		{% for option in options.category %}
+		{% if option.parent_unique_id == 0 %}
+		<option value="{{ option.id }}" disabled="disabled">{{ option.name }}</option>
+		{% else %}
+		<option value="{{ option.id }}">{{ option.name }}</option>
+		{% endif %}
+		{% endfor %}
+	</select>
 
 	<label for="total">合計</label>
-	<input type="text" id="total" name="total" class="input-block">
+	<input type="text" id="total" name="total" class="input-block" value="{{ values.total }}">
 	
 	<label for="shop">店名</label>
 	<input type="text" id="shop" name="shop" class="input-block">
 
 	<label for="paidfrom_id">出金元</label>
 	<select id="paidfrom_id" name="paidfrom_id" class="input-block">
+		{% for option in options.paidfrom %}
+		<option value="{{ option.id }}">{{ option.name }}</option>
+		{% endfor %}
 	</select>
 
 	<label for="memo">メモ</label>
-	<input type="text" id="memo" name="memo" class="input-block">
+	<textarea type="text" id="memo" name="memo" class="input-block">
+	</textarea>
 
 	<input type="hidden" name="_method" value="PUT">
 	<input type="submit" name="submit" value="Submit" class="button">
