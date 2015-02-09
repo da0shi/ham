@@ -11,9 +11,9 @@
 	<select id="category_id" name="category_id" class="input-block">
 		{% for option in options.category %}
 		{% if option.parent_unique_id == 0 %}
-		<option value="{{ option.id }}" disabled="disabled">{{ option.name }}</option>
+		<option value="{{ option.id }}">* {{ option.name }}</option>
 		{% else %}
-		<option value="{{ option.id }}">{{ option.name }}</option>
+		<option value="{{ option.id }}">　- {{ option.name }}</option>
 		{% endif %}
 		{% endfor %}
 	</select>
