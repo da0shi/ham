@@ -93,3 +93,8 @@ footer {
   width: 30%;
   padding: 0 5px;
 }
+
+.receipt-item > .btn-delete-item {
+  padding: 0;
+  width: 3%;
+}

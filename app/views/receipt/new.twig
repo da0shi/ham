@@ -21,6 +21,15 @@ btn.addEventListener('click', function (event) {
 	ham.addItem('receipt-items');
 	return false;
 });
+document.addEventListener('click', function (event) {
+	event.preventDefault();
+	var target = event.target;
+	if (target.className === "btn-delete-item") {
+		target.parentElement.remove();
+	}
+	return false;
+});
+
 })();
 </script>
 {% endblock %}
