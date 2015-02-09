@@ -2,7 +2,7 @@
 	<div class="receipt-form-header"></div>
 	<div class="receipt-form-body">
 	<label for="purchased_at">日付</label>
-	<input type="date" id="purchased_at" name="purchased_at" class="input-block" value="{{ values.purchased_at | date('Y/m/d') }}">
+	<input type="date" id="purchased_at" name="purchased_at" class="input-block" value="{{ values.purchased_at | date('Y-m-d') }}">
 
 	<label for="purchased_time">時間</label>
 	<input type="time" id="purchased_time" name="purchased_time" class="input-block" value="{{ values.purchased_time | date('H:i')}}">
