@@ -14,11 +14,13 @@
 
 {% block script %}
 <script type="text/javascript">
+(function () {
 var btn = document.getElementById('btn-add-item');
 btn.addEventListener('click', function (event) {
-		event.preventDefault();
-		ham.addItem('receipt-items');
-		return false;
-		});
+	event.preventDefault();
+	ham.addItem('receipt-items');
+	return false;
+});
+})();
 </script>
 {% endblock %}
