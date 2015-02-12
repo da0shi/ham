@@ -1,4 +1,4 @@
-INSERT INTO `category` (`unique_id`, `name`, `parent_unique_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `category` (`category_id`, `name`, `parent_id`, `created_at`, `updated_at`) VALUES
 (1000, '食費', 0, NOW(), NOW()),
 (2000, '生活費', 0, NOW(), NOW()),
 (3000, '交通費', 0, NOW(), NOW()),
