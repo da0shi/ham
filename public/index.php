@@ -53,7 +53,7 @@ $app->get('/receipt/new', function () use ($app) {
             'category' => $app['db']->fetchAll('SELECT `id`, `name`, `parent_unique_id` FROM `category` ORDER BY `unique_id`'),
         ];
     $defaults = [
-        'purchased_at' => time(),
+        'purchased_date' => time(),
             'purchased_time' => "00:00",
             'total' => 0,
         ];

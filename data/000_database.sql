@@ -12,7 +12,7 @@ USE `ham`;
 DROP TABLE IF EXISTS `ham`.`receipt`;
 CREATE TABLE IF NOT EXISTS `ham`.`receipt` (
   `id` serial,
-  `purchased_at` date NOT NULL,
+  `purchased_date` date NOT NULL,
   `purchased_time` time DEFAULT NULL,
   `shop_id` bigint NOT NULL,
   `total` int NOT NULL DEFAULT 0,
