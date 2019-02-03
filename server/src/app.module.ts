@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ReceiptController } from "./receipt/receipt.controller";
-import { ReceiptService } from './receipt/receipt.service';
+import { RecordModule } from './records/record.module';
 
 @Module({
-  controllers: [ReceiptController],
-  providers: [ReceiptService],
+  imports: [RecordModule],
 })
 export class AppModule {}

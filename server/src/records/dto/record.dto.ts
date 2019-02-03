@@ -1,4 +1,4 @@
-export class CreateReceiptDto {
+export class CreateRecordDto {
 	readonly date: Date;
 	readonly account: string;
 	readonly price: number;
@@ -8,7 +8,7 @@ export class CreateReceiptDto {
 	readonly note: string;
 }
 
-export class UpdateReceiptDto {
+export class UpdateRecordDto {
 	readonly date: Date;
 	readonly account: string;
 	readonly price: number;
@@ -18,7 +18,7 @@ export class UpdateReceiptDto {
 	readonly note: string;	
 }
 
-export class PatchReceiptDto {
+export class PatchRecordDto {
 	readonly date?: Date;
 	readonly account?: string;
 	readonly price?: number;

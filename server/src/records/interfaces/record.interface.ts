@@ -1,4 +1,4 @@
-export interface Receipt {
+export interface Record {
 	readonly date: Date;
 	readonly account: string;
 	readonly price: number;
