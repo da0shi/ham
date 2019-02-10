@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
-import { CreateRecordDto, PatchRecordDto, UpdateRecordDto } from "./dto/record.dto";
+import { RecordDto } from "./dto/record.dto";
 import { RecordService } from "./record.service";
 import { Record } from "./interfaces/record.interface";
 
@@ -9,7 +9,7 @@ export class RecordController {
   constructor(private readonly recordService: RecordService) {}
 
   @Post()
-  create(@Body() dto: CreateRecordDto) {
+  create(@Body() dto: RecordDto) {
     this.recordService.create(dto);
   }
 
@@ -24,12 +24,12 @@ export class RecordController {
   }
 
   @Put(":id")
-  update(@Param("id") id: number, @Body() dto: UpdateRecordDto) {
+  update(@Param("id") id: number, @Body() dto: RecordDto) {
     return "update this record";
   }
 
   @Patch(":id")
-  patch(@Param("id") id: number, @Body() dto: PatchRecordDto) {
+  patch(@Param("id") id: number, @Body() dto: RecordDto) {
     return "update this record's that part";
   }
 
