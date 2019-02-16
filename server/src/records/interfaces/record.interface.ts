@@ -1,4 +1,5 @@
 export interface Record {
+	readonly id: number;
 	readonly date: Date;
 	readonly account: string;
 	readonly price: number;
