@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Record } from "./interfaces/record.interface";
+import { Record } from "./record.interface";
 
 @Injectable()
 export class RecordService {

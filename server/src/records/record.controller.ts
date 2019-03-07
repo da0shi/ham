@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
-import { RecordDto } from "./dto/record.dto";
+import { RecordDto } from "./record.dto";
 import { RecordService } from "./record.service";
-import { Record } from "./interfaces/record.interface";
+import { Record } from "./record.interface";
 
 @Controller("records")
 export class RecordController {
