@@ -1,6 +1,6 @@
 export interface Record {
 	readonly id: number;
-	readonly date: Date;
+	readonly paidAt: Date;
 	readonly account: string;
 	readonly price: number;
 	readonly item: string;
